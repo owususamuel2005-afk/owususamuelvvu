@@ -1,121 +1,98 @@
+// AI-assisted: Generated with ChatGPT on [14/10/2026]. Modified by [Owusu Samuel].
+
+// Importing the Material Design library for Flutter UI components
 import 'package:flutter/material.dart';
 
+// Entry point of the Flutter application
 void main() {
+  // Running the root widget of the application
   runApp(const MyApp());
 }
 
+// Root widget of the application, extending StatelessWidget
 class MyApp extends StatelessWidget {
+  // Constructor for MyApp with a key parameter for widget identification
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // Building the widget tree for the application
   @override
   Widget build(BuildContext context) {
+    // Returning the MaterialApp widget which configures the app
     return MaterialApp(
-      title: 'Flutter Demo',
+      // Setting the application title
+      title: 'INFT 425',
+      // Defining the theme of the application
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        // Enabling Material Design 3 for modern UI styling
+        useMaterial3: true,
+        // Generating a color scheme from a purple seed color
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // Setting the home page widget of the application
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+// Home page widget, extending StatelessWidget
+class HomePage extends StatelessWidget {
+  // Constructor for HomePage with a key parameter for widget identification
+  const HomePage({super.key});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+  // Building the widget tree for the home page
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // Returning a Scaffold widget which provides the basic visual layout
     return Scaffold(
+      // Defining the top app bar of the screen
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        // Setting the title text displayed on the app bar
+        title: const Text('INFT 425 - Owusu Samuel '),
+        // Setting the background color of the app bar to purple
+        backgroundColor: Colors.purple,
       ),
+      // Defining the main body content of the screen
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+        // Arranging child widgets vertically in a column
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
+          // Centering the column's children vertically on the screen
+          mainAxisAlignment: MainAxisAlignment.center,
+          // Defining the list of child widgets inside the column
+          children: const [
+            // Displaying the "Hello World" greeting text
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              'Hello World',
+              // Styling the greeting text with size, weight, and color
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.purple,
+              ),
             ),
+            // Adding vertical spacing between widgets
+            SizedBox(height: 20),
+            // Displaying a green code icon
+            Icon(Icons.code, color: Colors.green, size: 50),
+            // Adding vertical spacing between widgets
+            SizedBox(height: 20),
+            // Adding horizontal padding around the department text
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              // Displaying the department name text
+              child: Text(
+                'Department of Computing Sciences and Engineering',
+                // Styling the department text with size and italic style
+                style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+                // Centering the department text horizontally
+                textAlign: TextAlign.center,
+              ),
+            ),
+            // Adding vertical spacing between widgets
+            SizedBox(height: 20),
+            // Displaying an orange school icon
+            Icon(Icons.school, color: Colors.orange, size: 40),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
