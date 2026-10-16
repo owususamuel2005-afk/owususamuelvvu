@@ -1,5 +1,5 @@
 void main() {
-  var name = 'Ama'; // BUG 1: missing semicolon
+  var name = 'Owusu Samuel'; // BUG 1: missing semicolon
   int age = 22; // BUG 2: missing semicolon
   final double gpa = 3.75;
   const pi = 3.14;

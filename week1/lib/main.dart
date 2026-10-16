@@ -89,6 +89,7 @@ class HomePage extends StatelessWidget {
             ),
             // Adding vertical spacing between widgets
             SizedBox(height: 20),
+           
             // Displaying an orange school icon
             Icon(Icons.school, color: Colors.orange, size: 40),
           ],

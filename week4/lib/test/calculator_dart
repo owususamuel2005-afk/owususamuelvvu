@@ -1,0 +1,147 @@
+// test/calculator_test.dart
+import 'package:test/test.dart';
+import 'package:week4_testing/calculator.dart';
+
+void main() {
+  // -------------------- add --------------------
+  group('add', () {
+    test('adds two positive numbers', () {
+      expect(add(2, 3), 5);
+    });
+
+    test('adds negative numbers', () {
+      expect(add(-3, -5), -8);
+    });
+
+    test('adds a positive and a negative', () {
+      expect(add(7, -2), 5);
+    });
+
+    test('adds zero', () {
+      expect(add(0, 0), 0);
+    });
+  });
+
+  // -------------------- subtract --------------------
+  group('subtract', () {
+    test('subtracts smaller from larger', () {
+      expect(subtract(10, 4), 6);
+    });
+
+    test('subtracting equal numbers gives zero', () {
+      expect(subtract(5, 5), 0);
+    });
+
+    test('subtracts resulting in negative', () {
+      expect(subtract(3, 8), -5);
+    });
+  });
+
+  // -------------------- multiply --------------------
+  group('multiply', () {
+    test('multiplies two positive numbers', () {
+      expect(multiply(4, 5), 20);
+    });
+
+    test('multiplying by zero gives zero', () {
+      expect(multiply(7, 0), 0);
+    });
+
+    test('multiplying two negatives gives positive', () {
+      expect(multiply(-3, -4), 12);
+    });
+  });
+
+  // -------------------- divide --------------------
+  group('divide', () {
+    test('divides evenly', () {
+      expect(divide(10, 2), 5.0);
+    });
+
+    test('divides with decimal result', () {
+      expect(divide(7, 2), 3.5);
+    });
+
+    test('throws ArgumentError when dividing by zero', () {
+      expect(() => divide(10, 0), throwsArgumentError);
+    });
+  });
+
+  // -------------------- isEven --------------------
+  group('isEven', () {
+    test('returns true for even positive number', () {
+      expect(isEven(4), true);
+    });
+
+    test('returns false for odd positive number', () {
+      expect(isEven(7), false);
+    });
+
+    test('returns true for zero', () {
+      expect(isEven(0), true);
+    });
+
+    test('returns true for negative even number', () {
+      expect(isEven(-6), true);
+    });
+
+    test('returns false for negative odd number', () {
+      expect(isEven(-3), false);
+    });
+  });
+
+  // -------------------- maxOfThree --------------------
+  group('maxOfThree', () {
+    test('returns first when it is largest', () {
+      expect(maxOfThree(9, 5, 2), 9);
+    });
+
+    test('returns middle when it is largest', () {
+      expect(maxOfThree(3, 8, 4), 8);
+    });
+
+    test('returns last when it is largest', () {
+      expect(maxOfThree(1, 2, 10), 10);
+    });
+
+    test('returns the value when all three are equal', () {
+      expect(maxOfThree(7, 7, 7), 7);
+    });
+
+    test('handles all negative numbers', () {
+      expect(maxOfThree(-5, -2, -9), -2);
+    });
+  });
+}
+
+  // -------------------- calculateGrade --------------------
+  group('calculateGrade', () {
+    // Grade levels
+    test('returns A for 90', () => expect(calculateGrade(90), 'A'));
+    test('returns B for 75', () => expect(calculateGrade(75), 'B'));
+    test('returns C for 65', () => expect(calculateGrade(65), 'C'));
+    test('returns D for 55', () => expect(calculateGrade(55), 'D'));
+    test('returns F for 40', () => expect(calculateGrade(40), 'F'));
+
+    // Boundary values (exact)
+    test('returns A at boundary 80', () => expect(calculateGrade(80), 'A'));
+    test('returns B at boundary 70', () => expect(calculateGrade(70), 'B'));
+    test('returns C at boundary 60', () => expect(calculateGrade(60), 'C'));
+    test('returns D at boundary 50', () => expect(calculateGrade(50), 'D'));
+    test('returns F at 0', () => expect(calculateGrade(0), 'F'));
+    test('returns A at 100', () => expect(calculateGrade(100), 'A'));
+
+    // Just below each boundary
+    test('returns B at 79', () => expect(calculateGrade(79), 'B'));
+    test('returns C at 69', () => expect(calculateGrade(69), 'C'));
+    test('returns D at 59', () => expect(calculateGrade(59), 'D'));
+    test('returns F at 49', () => expect(calculateGrade(49), 'F'));
+
+    // Invalid inputs
+    test('throws for negative score', () {
+      expect(() => calculateGrade(-1), throwsArgumentError);
+    });
+    test('throws for score over 100', () {
+      expect(() => calculateGrade(101), throwsArgumentError);
+    });
+  });
