@@ -1,10 +1,10 @@
 void main() {
-  var name = 'Owusu Samuel'; // BUG 1: missing semicolon
-  int age = 22; // BUG 2: missing semicolon
-  final double gpa = 3.75;
+  var name = 'Owusu Samuel'; // name 
+  int age = 22; // age
+  final double gpa = 3.75; 
   const pi = 3.14;
-  //pi = 3.14159; // BUG 3: can't change const
-  //gpa = 3.80; // BUG 4: can't change final
+  //pi = 3.14159; 
+  //gpa = 3.80; 
   print('Name: $name');
   print('Age: $age');
   print('GPA: $gpa');
